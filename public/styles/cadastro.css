@@ -1,0 +1,85 @@
+/* Estilo geral */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #dec6d4;
+  margin: 0;
+  padding: 40px;
+}
+
+/* Caixa central */
+.cadastro-box {
+  max-width: 500px;
+  margin: auto;
+  background: #f2f2f2;
+  padding: 30px 25px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+/* Título */
+.cadastro-box h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #333;
+}
+
+/* Rótulos */
+label {
+  display: block;
+  margin-top: 15px;
+  font-weight: bold;
+  color: #555;
+}
+
+/* Campos de entrada */
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+/* Botão */
+button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 25px;
+  background-color: #dec6d4;
+  color: #000000;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #808080;
+  color: #ffffff;
+}
+
+/* Mensagem de erro ou sucesso */
+#mensagem {
+  margin-top: 15px;
+  text-align: center;
+  font-size: 14px;
+  color: #d80000;
+}
+
+/* Link de redefinição */
+.login-box a {
+  display: block;
+  text-align: center;
+  margin-top: 15px;
+  color: #0077cc;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.login-box a:hover {
+  text-decoration: underline;
+}

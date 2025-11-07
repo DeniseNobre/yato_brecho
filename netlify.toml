@@ -1,0 +1,25 @@
+[build]
+publish = "public"
+functions = "netlify/functions"
+
+[dev]
+port = 3000
+autoLaunch = true
+
+[functions]
+node_bundler = "esbuild"
+external_node_modules = ["pg", "dotenv"]
+included_files = ["netlify/functions/*.js"]
+
+[[redirects]]
+from = "/styles/*"
+to = "/styles/:splat"
+status = 200
+
+[[redirects]]
+from = "/netlify/*"
+to = "/netlify/:splat"
+status = 200
+
+[context.production.environment]
+NEON_DB_URL = "postgresql://neondb_owner:npg_SOIqTrp76hwF@ep-jolly-bird-adk8g93w-pooler.c-2.us-east-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require"

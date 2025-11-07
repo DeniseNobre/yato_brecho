@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8">
+    <title>Painel</title>
+    <link rel="stylesheet" href="/styles/admin.css">
+  </head>
+  <body>
+    <h1 class="titulo-form">Cadastro de Produtos</h1>
+
+    <form id="form" class="formulario" autocomplete="off">
+      <input type="text" id="nome" placeholder="Nome do produto" required>
+      <input type="number" id="preco" placeholder="Preço" required step="0.01">
+      <input type="number" id="estoque" placeholder="Estoque" required min="0">
+
+      <select id="categoria" required>
+        <option value="">Categoria</option>
+        <option value="Feminino">Feminino</option>
+        <option value="Masculino">Masculino</option>
+        <option value="Infantil">Infantil</option>
+        <option value="Casa&Decor">Casa&Decor</option>
+        <option value="Outros">Outros</option>
+      </select>
+
+      <input list="tamanhos" id="tamanho" placeholder="Tamanho">
+      <datalist id="tamanhos">
+        <option value="Único">
+        <option value="N/A">
+        <option value="PP">
+        <option value="P">
+        <option value="M">
+        <option value="G">
+        <option value="GG">
+      </datalist>
+
+      <select id="condicao" required>
+        <option value="">Condição</option>
+        <option value="Novo">Novo</option>
+        <option value="Seminovo">Seminovo</option>
+        <option value="Vintage">Vintage</option>
+      </select>
+
+      <input type="file" id="imagem" accept="image/*" required>
+      <button type="submit" class="botao-adicionar">Adicionar</button>
+    </form>
+
+    <div class="btn-excluir">
+      <button id="excluir-selecionados" class="botao-excluir">Excluir selecionados</button>
+    </div>
+
+    <section class="tabela">
+      <table aria-label="Lista de produtos cadastrados">
+        <caption>Produtos cadastrados</caption>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Selecionar</th>
+            <th>Imagem</th>
+            <th>Nome</th>
+            <th>Tamanho</th>
+            <th>Preço</th>
+            <th>Estoque</th>
+            <th>Categoria</th>
+            <th>Condição</th>
+            <th>Editar</th>
+          </tr>
+        </thead>
+        <tbody id="tabela-produtos"></tbody>
+      </table>
+    </section>
+
+    <div class="btn-voltar">
+      <a href="/" class="botao-voltar" title="voltar ao site">Voltar ao site</a>
+      <a href="pedidos.html" class="botao-voltar" title="Página Pedidos">Visualizar Pedidos</a>
+    </div>
+
+    <script src="/scripts/admin.js"></script>
+
+    <!-- VLibras Plugin -->
+    <div vw class="enabled">
+      <div vw-access-button class="active"></div>
+      <div vw-plugin-wrapper>
+        <div class="vw-plugin-top-wrapper"></div>
+      </div>
+    </div>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+      new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
+  </body>
+</html>

@@ -1,0 +1,199 @@
+/* Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Layout geral */
+body {
+  height: 100%;
+  font-family: 'Segoe UI', sans-serif;
+  background: #dec6d4;
+  color: #333;
+  padding: 20px;
+}
+
+/* Título */
+.titulo-form {
+  text-align: center;
+  font-size: 28px;
+  color: #d81b60;
+  margin-bottom: 30px;
+}
+
+/* Formulário */
+.formulario {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.btn-excluir {
+  text-align: center;
+  margin-top: 15px;
+}
+
+form#form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Inputs */
+input[type="text"],
+input[type="number"],
+input[list],
+select {
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #f48fb1;
+  border-radius: 8px;
+  background-color: #fff;
+  color: #888;
+  width: 180px;
+  height: 48px;
+  font-family: 'Segoe UI', sans-serif;
+  transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+input[list]:focus,
+select:focus,
+input[type="file"]:hover {
+  border-color: #d81b60;
+}
+
+/* Estilo para placeholder */
+input::placeholder,
+textarea::placeholder {
+  color: #888;
+}
+
+/* Botão de arquivo */
+input[type="file"]::file-selector-button {
+  background-color: #f48fb1;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-weight: bold;
+  font-family: inherit;
+  cursor: pointer;
+  height: 100%;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+input[type="file"]::file-selector-button:hover {
+  background-color: #d81b60;
+  transform: scale(1.05);
+}
+
+/* Botões */
+button,
+.botao-voltar,
+.botao-adicionar,
+.botao-excluir,
+.botao-editar {
+  background-color: #f48fb1;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover,
+.botao-voltar:hover,
+.botao-adicionar:hover,
+.botao-excluir:hover,
+.botao-editar:hover {
+  background-color: #d81b60;
+  transform: scale(1.05);
+}
+
+/* Botão voltar */
+.botao-voltar {
+  display: inline-block;
+  margin-top: 20px;
+  text-decoration: none;
+}
+
+.btn-voltar {
+  text-align: center;
+  margin-top: 16px;
+}
+
+/* Tabela */
+.tabela {
+  max-height: 400px;
+  overflow-y: auto;
+  position: relative;
+  border-radius: 8px;
+  margin-top: 30px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+table th,
+table td {
+  text-align: center;
+  vertical-align: middle;
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+}
+
+table th {
+  background-color: #fce4ec;
+  color: #333;
+  font-weight: bold;
+}
+
+table td img {
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+/* Caption */
+caption {
+  caption-side: top;
+  font-size: 20px;
+  font-weight: bold;
+  color: #d81b60;
+  padding: 5px 0;
+  text-align: center;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+/* Responsivo */
+@media (max-width: 600px) {
+  form#form {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  input[type="text"],
+  input[type="number"],
+  input[type="file"] {
+    width: 90%;
+  }
+
+  .btn-excluir {
+    margin-top: 24px;
+  }
+}

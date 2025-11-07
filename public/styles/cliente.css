@@ -1,0 +1,99 @@
+/* Fundo da página */
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: #dec6d4;
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+}
+
+.pagina_cliente {
+  max-width: 700px;
+  width: 100%;
+  padding: 20px;
+  text-align: center;
+  background-color: #f2f2f2;
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.saudacao {
+  color: #555;
+}
+
+/* Foto do cliente */
+.foto-perfil img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ccc;
+}
+
+/* Dados visuais */
+.dados-visuais {
+  margin: 20px 0;
+  text-align: left;
+}
+
+.dados-visuais p {
+  margin: 10px 0;
+  font-size: 16px;
+}
+
+/* Formulário de edição */
+.editar-form {
+  display: none;
+  margin-top: 20px;
+  text-align: left;
+}
+
+.editar-form label {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.editar-form input {
+  width: 99%;
+  margin-top: 5px;
+  padding: 5px;
+}
+
+/* Botões */
+.botoes a,
+#editarBtn,
+#salvarAlteracoes {
+  display: inline-block;
+  margin: 10px;
+  padding: 10px 20px;
+  background-color: #f48fb1;
+  color: #ffffff;
+  font-weight: bold;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.botoes a:hover,
+#editarBtn:hover,
+#salvarAlteracoes:hover {
+  background-color: #555;
+}
+
+input[type="file"]::file-selector-button {
+  background-color: #f48fb1;
+  color: #ffffff;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-weight: bold;
+  font-family: inherit;
+  cursor: pointer;
+  height: 100%;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}

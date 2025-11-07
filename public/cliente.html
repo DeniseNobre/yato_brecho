@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Área do Cliente - Yato Brechó</title>
+    <link rel="stylesheet" href="/styles/cliente.css" />
+  </head>
+  <body>
+    <section class="pagina_cliente">
+      <h1 id="tituloBoasVindas" class="saudacao">Bem-vindo, cliente!</h1>
+
+      <div class="foto-perfil">
+        <img id="previewFoto" src="/styles/images/icone-perfil.png" alt="Foto do cliente" />
+      </div>
+
+      <div class="dados-visuais">
+        <p><strong>Nome:</strong> <span id="nomeTexto"></span></p>
+        <p><strong>Senha:</strong> <span id="senhaTexto">********</span></p>
+      </div>
+
+      <button id="editarBtn">Editar informações</button>
+
+      <div class="editar-form" id="editarForm" style="display: none;">
+        <label for="nomeCliente">Novo nome:</label>
+        <input type="text" id="nomeCliente" />
+
+        <label for="senhaCliente">Nova senha:</label>
+        <input type="password" id="senhaCliente" />
+
+        <label for="fotoInput">Nova foto:</label>
+        <input type="file" id="fotoInput" accept="image/*" />
+
+        <button id="salvarAlteracoes">Salvar alterações</button>
+      </div>
+
+      <div class="botoes">
+        <a href="/">Voltar ao site</a>
+        <a href="carrinho.html">Meu carrinho</a>
+      </div>
+    </section>
+
+    <!-- VLibras -->
+    <div vw class="enabled">
+      <div vw-access-button class="active"></div>
+      <div vw-plugin-wrapper>
+        <div class="vw-plugin-top-wrapper"></div>
+      </div>
+    </div>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+      new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
+
+    <script>
+      window.addEventListener('DOMContentLoaded', async () => {
+        const usuario = JSON.parse(localStorage.getItem('usuarioLogado'));
+        const nomeLogado = usuario?.nome;
+
+        if (!nomeLogado) {
+          alert('Usuário não logado. Faça login novamente.');
+          window.location.href = 'login.html';
+          return;
+        }
+
+        try {
+          const resposta = await fetch('/.netlify/functions/cliente', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ acao: 'buscar', nome: nomeLogado })
+          });
+
+          const dados = await resposta.json();
+
+          if (dados.sucesso) {
+            const cliente = dados.dados;
+
+            document.getElementById('tituloBoasVindas').textContent = `Bem-vindo, ${cliente.nome}!`;
+            document.getElementById('nomeTexto').textContent = cliente.nome;
+            document.getElementById('senhaTexto').textContent = '********';
+            document.getElementById('nomeCliente').value = cliente.nome;
+            document.getElementById('senhaCliente').value = cliente.senha;
+
+            if (cliente.foto_url && cliente.foto_url.trim() !== '') {
+              document.getElementById('previewFoto').src = cliente.foto_url;
+            }
+          } else {
+            alert('Erro ao carregar dados do cliente.');
+          }
+        } catch (erro) {
+          alert('Erro de conexão com o servidor.');
+        }
+      });
+
+      document.getElementById('editarBtn').addEventListener('click', () => {
+        document.getElementById('editarForm').style.display = 'block';
+      });
+
+      document.getElementById('fotoInput').addEventListener('change', function (event) {
+        const file = event.target.files[0];
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = function (e) {
+            document.getElementById('previewFoto').src = e.target.result;
+          };
+          reader.readAsDataURL(file);
+        }
+      });
+
+      document.getElementById('salvarAlteracoes').addEventListener('click', async function () {
+        const nome = document.getElementById('nomeCliente').value;
+        const senha = document.getElementById('senhaCliente').value;
+        const foto = document.getElementById('fotoInput').files[0];
+
+        let foto_url = null;
+
+        if (foto) {
+          const formData = new FormData();
+          formData.append('image', foto);
+          formData.append('key', '9cb38e2a595da3a391bce41aec6a7b12');
+
+          const upload = await fetch('https://api.imgbb.com/1/upload', {
+            method: 'POST',
+            body: formData
+          });
+
+          const resultado = await upload.json();
+          foto_url = resultado.data.url;
+        }
+
+        const resposta = await fetch('/.netlify/functions/cliente', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ acao: 'atualizar', nome, senha, foto_url })
+        });
+
+        const dados = await resposta.json();
+        alert(dados.mensagem);
+
+        document.getElementById('tituloBoasVindas').textContent = `Bem-vindo, ${nome}!`;
+        document.getElementById('nomeTexto').textContent = nome;
+        document.getElementById('senhaTexto').textContent = '********';
+        document.getElementById('editarForm').style.display = 'none';
+      });
+    </script>
+  </body>
+</html>

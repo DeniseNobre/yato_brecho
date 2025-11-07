@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="apple-touch-icon" sizes="180x180" href="styles/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="styles/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="styles/images/favicon-16x16.png">
+    <link rel="manifest" href="styles/images/site.webmanifest">
+    <title>Catálogo - Yato</title>
+
+    <!-- Fonte personalizada -->
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet" />
+
+    <!-- Estilos -->
+    <link href="../styles/style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  </head>
+  <body>
+    <!-- Cabeçalho -->
+    <header class="cabecalho">
+      <div class="cabecalho-conteudo">
+        <img src="styles/images/logo-yato.jpg" alt="logo Yato" class="logo">
+        <div class="cabecalho-texto">
+          <h1>Catálogo</h1>
+          <p>Moda circular e sustentável</p>
+        </div>
+        <a href="login.html" class="botao-login" aria-label="Login" title="Fazer login na sua conta">
+          <i class="fas fa-user"></i>
+        </a>
+      </div>
+    </header>
+
+    <!-- Menu de categorias -->
+    <nav class="menu-categorias">
+      <ul>
+        <li><a href="#" data-categoria="masculino">Masculino</a></li>
+        <li><a href="#" data-categoria="feminino">Feminino</a></li>
+        <li><a href="#" data-categoria="infantil">Infantil</a></li>
+        <li><a href="#" data-categoria="casa-decor">Casa&Decor</a></li>
+        <li><a href="#" data-categoria="outros">Outros</a></li>
+      </ul>
+    </nav>
+
+    <!-- Barra de pesquisa + botão de filtro -->
+    <section class="filtro-pesquisa">
+      <input type="text" id="pesquisa" placeholder="O que você procura?" />
+      <button id="botao-filtro" class="botao-filtro">Filtrar</button>
+    </section>
+
+    <!-- Filtros avançados -->
+    <div id="lista-filtros" class="lista-filtros">
+      <!-- Tamanho -->
+      <div class="grupo-filtro">
+        <strong>Tamanho:</strong>
+        <label><input type="checkbox" value="P" data-filtro="tamanho"> P</label>
+        <label><input type="checkbox" value="M" data-filtro="tamanho"> M</label>
+        <label><input type="checkbox" value="G" data-filtro="tamanho"> G</label>
+        <label><input type="checkbox" value="GG" data-filtro="tamanho"> GG</label>
+      </div>
+
+      <!-- Faixa de preço -->
+      <div class="grupo-filtro">
+        <strong>Preço:</strong>
+        <label><input type="checkbox" value="ate50" data-filtro="preco"> Até R$50</label>
+        <label><input type="checkbox" value="50a100" data-filtro="preco"> R$50 a R$100</label>
+        <label><input type="checkbox" value="acima100" data-filtro="preco"> Acima de R$100</label>
+      </div>
+
+      <!-- Condição -->
+      <div class="grupo-filtro">
+        <strong>Condição:</strong>
+        <label><input type="checkbox" value="novo" data-filtro="condicao"> Novo</label>
+        <label><input type="checkbox" value="seminovo" data-filtro="condicao"> Seminovo</label>
+        <label><input type="checkbox" value="vintage" data-filtro="condicao"> Vintage</label>
+      </div>
+    </div>
+      <!-- Catálogo de produtos -->
+      <main>
+        <section class="catalogo">
+          <!-- Produtos serão inseridos aqui via JavaScript -->
+        </section>
+      </main>
+
+      <!-- Rodapé -->
+      <footer>
+        <p>© 2025 Yato - Todos os direitos reservados</p>
+        <div class="redes-sociais">
+          <a href="https://www.instagram.com/yatobrecho/" target="_blank" aria-label="Instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://www.facebook.com/seubrecho" target="_blank" aria-label="Facebook">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="https://wa.me/5511999999999" target="_blank" aria-label="WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+          </a>
+        </div>
+        <p class="endereco">R. Dom José de Barros, 337 - 4º andar, Sala 420 - República, São Paulo, SP - 01036-000</p>
+      </footer>
+
+      <!-- VLibras Plugin -->
+      <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+          <div class="vw-plugin-top-wrapper"></div>
+        </div>
+      </div>
+      <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+      <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+      </script>
+
+      <!-- Script -->
+      <script src="../scripts/script.js" defer></script>
+
+  </body>
+</html>

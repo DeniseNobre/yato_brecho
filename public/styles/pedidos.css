@@ -1,0 +1,117 @@
+/* Base */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #fce4ec;
+  color: #333;
+  padding: 20px;
+}
+
+/* Container principal */
+.pagina-pedidos {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Título */
+.pagina-pedidos h1 {
+  text-align: center;
+  font-size: 32px;
+  color: #d81b60;
+  margin-bottom: 30px;
+}
+
+/* Lista com rolagem */
+.lista-pedidos {
+  max-height: 600px;
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+/* Pedido individual */
+.pedido {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  padding: 16px;
+  margin-bottom: 20px;
+}
+
+/* Título do pedido */
+.pedido h2 {
+  color: #d81b60;
+  margin-bottom: 8px;
+}
+
+/* Lista de itens */
+.pedido ul {
+  margin-top: 10px;
+  padding-left: 20px;
+}
+
+/* Status */
+.status-text {
+  font-weight: bold;
+  color: #444;
+}
+
+/* Ações */
+.acoes {
+  margin-top: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.acoes label {
+  font-weight: bold;
+}
+
+.acoes select {
+  padding: 6px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  font-size: 14px;
+}
+
+.acoes button {
+  background-color: #d81b60;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.acoes button:hover {
+  background-color: #c2185b;
+}
+
+/* Mensagens */
+.vazio, .erro {
+  text-align: center;
+  font-size: 18px;
+  color: #999;
+}
+
+/* Rodapé */
+.botoes {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.botoes a {
+  background-color: #f48fb1;
+  color: white;
+  padding: 10px 18px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.botoes a:hover {
+  background-color: #ec407a;
+}

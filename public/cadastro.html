@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Cadastro - Yato Brechó</title>
+  <link rel="stylesheet" href="../styles/cadastro.css">
+</head>
+<body>
+  <section class="pagina_cadastro">
+    <!-- VLibras Plugin -->
+    <div vw class="enabled">
+      <div vw-access-button class="active"></div>
+      <div vw-plugin-wrapper>
+        <div class="vw-plugin-top-wrapper"></div>
+      </div>
+    </div>
+
+    <div class="cadastro-box">
+      <h2>Cadastro Yato Brechó</h2>
+      <form id="cadastroForm">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
+
+        <label for="senha">Senha:</label>
+        <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required>
+
+        <button type="submit">Cadastrar</button>
+      </form>
+
+      <p id="mensagem"></p>
+    </div>
+
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+      new window.VLibras.Widget('https://vlibras.gov.br/app');
+
+      document.getElementById('cadastroForm').addEventListener('submit', async function (event) {
+        event.preventDefault();
+
+        const nome = document.getElementById('nome').value;
+        const senha = document.getElementById('senha').value;
+
+        try {
+          const resposta = await fetch('/.netlify/functions/cadastro', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ nome, senha })
+          });
+
+          const dados = await resposta.json();
+          const mensagem = document.getElementById('mensagem');
+
+          if (dados.sucesso) {
+            mensagem.textContent = 'Cadastro realizado com sucesso! Redirecionando...';
+            setTimeout(() => {
+              window.location.href = 'login.html';
+            }, 2000);
+          } else {
+            mensagem.textContent = dados.mensagem;
+          }
+        } catch (erro) {
+          document.getElementById('mensagem').textContent = 'Erro ao conectar com o servidor.';
+        }
+      });
+    </script>
+  </section>
+</body>
+</html>

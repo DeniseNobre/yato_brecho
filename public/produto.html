@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Yato Brechó</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <!-- Cabeçalho -->
+        <header>
+            <h1>Catálogo de Peças</h1>
+        </header>
+
+        <!-- Barra superior (pesquisa + filtros) -->
+        <div class="barra-superior">
+            <div class="barra-pesquisa">
+            <input type="text" id="campoPesquisa" placeholder="Pesquisar peças...">
+            </div>
+            <button class="botao-filtro" onclick="alternarFiltros()">Filtros ⬇</button>
+        </div>
+
+        <!-- Lista de filtros -->
+        <div id="listaFiltros" class="lista-filtros oculto">
+            <label><input type="checkbox" value="roupas" onchange="aplicarFiltros()"> Roupas</label>
+            <label><input type="checkbox" value="acessorios" onchange="aplicarFiltros()"> Acessórios</label>
+            <label><input type="checkbox" value="calcados" onchange="aplicarFiltros()"> Calçados</label>
+        </div>
+
+        <!-- Catálogo -->
+        <main class="catalogo">
+            <div class="produto roupas">
+            <img src="https://via.placeholder.com/250x300.png?text=Vestido" alt="Vestido">
+            <div class="info">
+                <h3>Vestido Floral</h3>
+                <p class="preco">R$ 45,00</p>
+                <button class="botao">Ver mais</button>
+            </div>
+            </div>
+
+            <div class="produto roupas">
+            <img src="https://via.placeholder.com/250x300.png?text=Jaqueta" alt="Jaqueta">
+            <div class="info">
+                <h3>Jaqueta Jeans</h3>
+                <p class="preco">R$ 70,00</p>
+                <button class="botao">Ver mais</button>
+            </div>
+            </div>
+
+            <div class="produto acessorios">
+            <img src="https://via.placeholder.com/250x300.png?text=Bolsa" alt="Bolsa">
+            <div class="info">
+                <h3>Bolsa Vintage</h3>
+                <p class="preco">R$ 55,00</p>
+                <button class="botao">Ver mais</button>
+            </div>
+            </div>
+
+            <div class="produto calcados">
+            <img src="https://via.placeholder.com/250x300.png?text=Sapato" alt="Sapato">
+            <div class="info">
+                <h3>Sapato Social</h3>
+                <p class="preco">R$ 80,00</p>
+                <button class="botao">Ver mais</button>
+            </div>
+            </div>
+        </main>
+
+        <!-- Rodapé -->
+        <footer>
+            <p>&copy; 2025 Yato Brechó - Todos os direitos reservados.</p>
+        </footer>
+
+        <script src="script.js"></script>
+    </body>
+</html>

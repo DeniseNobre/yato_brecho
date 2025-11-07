@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Meu Carrinho - Yato Brechó</title>
+    <link rel="stylesheet" href="/styles/carrinho.css" />
+  </head>
+  <body>
+    <section class="pagina-carrinho">
+      <h1>Meu Carrinho</h1>
+
+      <div id="listaCarrinho" class="lista-carrinho">
+        <!-- Produtos são inseridos aqui -->
+      </div>
+
+      <div class="resumo-carrinho">
+        <p>Total: <span id="totalCarrinho">R$ 0,00</span></p>
+        <button id="finalizarCompra">Finalizar compra</button>
+      </div>
+
+      <div class="botoes">
+        <a href="/">Voltar ao catálogo</a>
+        <a href="cliente.html">Área do cliente</a>
+      </div>
+    </section>
+
+    <!-- VLibras Plugin -->
+    <div vw class="enabled">
+      <div vw-access-button class="active"></div>
+      <div vw-plugin-wrapper>
+        <div class="vw-plugin-top-wrapper"></div>
+      </div>
+    </div>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+      new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
+
+    <!-- Script carrinho -->
+    <script src="/scripts/carrinho.js" defer></script>
+  </body>
+</html>
